@@ -1,0 +1,17 @@
+{
+  "database": {
+    "schema": {
+      "contributions_v1": {
+        "id": {
+          "type": "text",
+          "description": "The user's unique identifier."
+        },
+        "score": {
+          "type": "integer",
+          "description": "The number of merges initiated by the user."
+        }
+      }
+    }
+  }
+}
+
