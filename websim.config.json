@@ -1,14 +1,22 @@
 {
   "database": {
     "schema": {
-      "contributions_v1": {
+      "pixels_v1": {
         "id": {
           "type": "text",
-          "description": "The user's unique identifier."
+          "description": "Pixel coordinate, e.g., '10:20'."
         },
-        "score": {
+        "x": {
           "type": "integer",
-          "description": "The number of merges initiated by the user."
+          "description": "The x-coordinate of the pixel."
+        },
+        "y": {
+          "type": "integer",
+          "description": "The y-coordinate of the pixel."
+        },
+        "color": {
+          "type": "text",
+          "description": "Hex color code, e.g., '#FFFFFF'."
         }
       }
     }
