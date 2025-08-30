@@ -1,10 +1,11 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, createContext } from "react";
 import { createRoot } from "react-dom/client";
 import { WebsimSocket, useQuery } from "@websim/use-query";
 import Canvas from "./components/Canvas.jsx";
 import ColorPalette from "./components/ColorPalette.jsx";
 const room = new WebsimSocket();
+const RoomContext = createContext(null);
 const COLORS = [
   "#FFFFFF",
   "#C2C2C2",
@@ -52,33 +53,33 @@ function App() {
     /* @__PURE__ */ jsxDEV("div", { className: "absolute top-4 text-center z-20 pointer-events-none", children: [
       /* @__PURE__ */ jsxDEV("h1", { className: "text-4xl md:text-6xl font-bold text-cyan-300", style: { textShadow: "0 0 10px cyan" }, children: "Collaborative Canvas" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 50,
+        lineNumber: 51,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("p", { className: "text-neutral-400 max-w-2xl", children: "Click to place a pixel. Pan and pinch to zoom." }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 53,
+        lineNumber: 54,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 9
     }, this),
     loading ? /* @__PURE__ */ jsxDEV("div", { className: "flex items-center text-2xl text-cyan-300", children: [
       /* @__PURE__ */ jsxDEV("i", { className: "fas fa-spinner fa-spin mr-3" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 58,
+        lineNumber: 59,
         columnNumber: 17
       }, this),
       " Loading Canvas..."
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 57,
+      lineNumber: 58,
       columnNumber: 13
     }, this) : /* @__PURE__ */ jsxDEV(Canvas, { pixels: pixelsMap, onSetPixel: handleSetPixel }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 61,
+      lineNumber: 62,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ jsxDEV(
@@ -92,22 +93,26 @@ function App() {
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 64,
+        lineNumber: 65,
         columnNumber: 9
       },
       this
     )
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 48,
+    lineNumber: 49,
     columnNumber: 5
   }, this);
 }
 const root = createRoot(document.getElementById("root"));
 root.render(
-  /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+  /* @__PURE__ */ jsxDEV(RoomContext.Provider, { value: room, children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
     fileName: "<stdin>",
-    lineNumber: 75,
+    lineNumber: 77,
+    columnNumber: 9
+  }) }, void 0, false, {
+    fileName: "<stdin>",
+    lineNumber: 76,
     columnNumber: 5
   })
 );
