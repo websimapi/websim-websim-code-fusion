@@ -4,7 +4,7 @@ import { useQuery } from "@websim/use-query";
 import { room } from "../app.jsx";
 import { motion } from "framer-motion";
 const Leaderboard = () => {
-  const { data: leaders, loading } = useQuery(room.query(`
+  const { data: leaders, loading } = useQuery((room2) => room2.query(`
         SELECT c.id, c.score, u.username 
         FROM public.contributions_v1 c 
         JOIN public.user u ON c.id = u.id 

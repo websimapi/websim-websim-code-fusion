@@ -1,7 +1,7 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { WebsimSocket } from "@websim/websim-socket";
+import { WebsimSocket, RoomProvider } from "@websim/use-query";
 import ProjectVisualizer from "./components/ProjectVisualizer.jsx";
 import Leaderboard from "./components/Leaderboard.jsx";
 import CodeOutput from "./components/CodeOutput.jsx";
@@ -117,11 +117,17 @@ ${result.codeSnippet}`;
   }, this);
 }
 const root = createRoot(document.getElementById("root"));
-root.render(/* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
-  fileName: "<stdin>",
-  lineNumber: 103,
-  columnNumber: 13
-}));
+root.render(
+  /* @__PURE__ */ jsxDEV(RoomProvider, { room, children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
+    fileName: "<stdin>",
+    lineNumber: 105,
+    columnNumber: 9
+  }) }, void 0, false, {
+    fileName: "<stdin>",
+    lineNumber: 104,
+    columnNumber: 5
+  })
+);
 export {
   room
 };
