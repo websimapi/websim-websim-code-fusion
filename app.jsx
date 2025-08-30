@@ -1,7 +1,7 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useMemo, useCallback } from "react";
 import { createRoot } from "react-dom/client";
-import { WebsimSocket, RoomProvider, useQuery } from "@websim/use-query";
+import { WebsimSocket, useQuery } from "@websim/use-query";
 import Canvas from "./components/Canvas.jsx";
 import ColorPalette from "./components/ColorPalette.jsx";
 const room = new WebsimSocket();
@@ -105,11 +105,7 @@ function App() {
 }
 const root = createRoot(document.getElementById("root"));
 root.render(
-  /* @__PURE__ */ jsxDEV(RoomProvider, { room, children: /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
-    fileName: "<stdin>",
-    lineNumber: 76,
-    columnNumber: 9
-  }) }, void 0, false, {
+  /* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
     fileName: "<stdin>",
     lineNumber: 75,
     columnNumber: 5
